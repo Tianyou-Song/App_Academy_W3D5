@@ -17,6 +17,15 @@ ul li a, figcaption a {
   color: inherit;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+header nav ul {
+  display: flex;
+}
+
 header > img {
   width: 100px;
   float: left;
@@ -71,7 +80,7 @@ nav {
 }
 
 nav ul li {
-    display: inline-block;
+
 }
 
 nav ul li a {
@@ -109,4 +118,3 @@ textarea {
 label {
     display: block;
 }
-

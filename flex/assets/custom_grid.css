@@ -36,7 +36,6 @@ with a class attribute containing 'col-' */
 .cf:after {
   content: '';
   display: block;
-  clear: both;
 }
 
 /* CSS Day 6 media queries */
@@ -45,4 +44,3 @@ with a class attribute containing 'col-' */
     width: 100%;
   }
 }
-
