@@ -25,6 +25,7 @@ class SQLObject
       end
 
       define_method("#{column}=") do |v|
+        @attributes ||= Hash.new
         @attributes[column] = v
       end
     end
