@@ -8,13 +8,14 @@ class SQLObject
   def self.columns
     return @columns if @columns
 
-    columns = DBConnection.execute2(<<-SQL).first
+    columns = DBConnection.execute2(<<-SQL)
       SELECT
         *
       FROM
         #{self.table_name}
     SQL
 
+    columns = columns.first
     @columns = columns.map { |column| column.to_sym }
   end
 
@@ -52,7 +53,15 @@ class SQLObject
   end
 
   def initialize(params = {})
-    # ...
+    params.each do |k, v|
+      k = k.to_sym
+      raise "unknown attribute '#{k}'" unless self.class.columns.include?(k)
+    end
+
+    params.each do |k, v|
+      k = k.to_sym
+      self.send("#{k}=", v)
+    end
   end
 
   def attributes
